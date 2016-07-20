@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @comment.author %>
+</p>
+
+<p>
+  <strong>Comment entry:</strong>
+  <%= @comment.comment_entry %>
+</p>
+<% @blog.each do |blog| %>
+
+    <% blog.comments.each do |comment| %>
+
+        <p><%= comment.author %></p>
+        <p><%= comment.comment_entry %></p>
+    <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>
