@@ -1,34 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog_post.title %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @blog_post.author %>
-</p>
-
-<p>
-  <strong>Blog entry:</strong>
-  <%= @blog_post.blog_entry %>
-</p>
-<div>
-	<%= render 'comments/form' %>
+<div class ="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="panel panel-default">
+        	<div class="panel-heading">
+          		<h3 class="panel-title">Title:<%= @blog_post.title %> </h3>
+          		<strong>Author:</strong> <%= @blog_post.author %>
+          	</div>
+			<div class="panel-body">
+  					<strong>Blog entry:</strong>
+  				<p>	<%= @blog_post.blog_entry %> </p>
+  			</div>
+  			<div class="panel-footer">
+  				<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
+				<%= link_to 'Back', blog_posts_path %>
+			</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
-<%= link_to 'Back', blog_posts_path %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-4">
+		<%= render 'comments/form' %>
+	</div>
+</div>
+<div class ="row">
+      <div class="col-md-6 col-md-offset-3">
+      <% @blog_post.comments.each do |comment| %>
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h2 class="list-group-item-heading"><%= comment.author %></h2>
 
-<div class="panel panel-default">
-	<div class="panel-header">
-		<h4> Comments</h4>
-	</div>
-	<% @blog_post.comments.each do |comment| %>
-	<div class= "panel-body">
-		<p><%= comment.author %></p>
-		<p><%= comment.comment_entry %></p>
-	</div>
-	<%end %>
+    <h3 class="list-group-item-text"><span class="label label-info"><%= comment.comment_entry %></span></h3>
+ 
+  </a>
+</div>
+<%end %>
+</div>
 </div>
