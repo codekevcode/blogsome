@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#add sample info
+gem 'faker'
 #add authentication gem
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
