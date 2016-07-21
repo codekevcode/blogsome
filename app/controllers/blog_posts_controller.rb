@@ -23,6 +23,9 @@ class BlogPostsController < ApplicationController
   end
 
   # POST /blog_posts
+  def comment_params
+    params.require(:comment).permit(:author, :comment_entry, :blog_post_id, :user_id)
+  end
   # POST /blog_posts.json
   def create
     @blog_post = BlogPost.new(blog_post_params)

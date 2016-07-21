@@ -22,6 +22,10 @@ class CommentsController < ApplicationController
   end
 
   # POST /comments
+
+  def blog_post_params
+    params.require(:blog_post).permit(:title,:author, :blog_entry, :blog_post_id, :user_id)
+  end
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
