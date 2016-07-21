@@ -10,7 +10,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="container">
+	<div class="pull-right">
+	<% if user_signed_in? %>
+		<%= link_to "Time to Go", destroy_user_session_path, method: :delete, class: "btn btn-danger" %> 
+		<% end %>
+	</div>
+</div>
 <%= yield %>
 
 </body>
